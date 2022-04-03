@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>test </title>
+{% endblock %}
+
+{% block content %}
+    <h1>Ajout dun condidat</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Ajouter">
+    </form>
+    <h1>liste des condidatq</h1>
+        <table>
+        <tr>
+            <th>Nom</th>
+            <th>pronom</th>
+            <th>profile</th>
+            <th>CV</th>
+        </tr>
+        {% for c in comptes %}
+        <tr>
+            <th>{{ c.nom}}</th>
+            <th>{{ c.prenom}}</th>
+            <th>{{ c.profile}}</th>
+            <th><a href="{{c.CV.url}}" >{{ c.CV}}</a></th>
+        </tr>
+        {% endfor %}
+        </table>
+{% endblock %}

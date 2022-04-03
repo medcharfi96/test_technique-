@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>test </title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>liste des condidatq</h1>
+    <table>
+    <tr>
+        <th>Nom</th>
+        <th>pronom</th>
+        <th>profile</th>
+        <th>CV</th>
+    </tr>
+    {% for c in compte %}
+    <tr>
+        <th>{{ c.nom}}</th>
+        <th>{{ c.prenom}}</th>
+        <th>{{ c.profile}}</th>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
